@@ -11,6 +11,7 @@ let randomWord = "qqqqq";
 console.log(randomWord);
 
 function insertText(text) {
+  console.log("triggered");
   document.getElementById(`${text}`).addEventListener("click", (e) => {
     const target = e.target;
 
@@ -25,15 +26,15 @@ function insertText(text) {
 
 function insertLetter(pressedKey) {
   if (nextLetter < 5) {
-    pressedKey = pressedKey.toLowerCase();
-
     console.log(pressedKey);
 
     let row = document.getElementsByClassName("grid-row")[5 - guessesRemaining];
 
     let box = row.children[nextLetter];
     console.log(box);
+
     box.textContent = pressedKey;
+    pressedKey = pressedKey.toLowerCase();
     //   box.classList.add("filled-box");
     currentGuess.push(pressedKey);
     nextLetter += 1;
@@ -90,6 +91,7 @@ function checkGuess() {
     guessesRemaining = 0;
     return;
   } else {
+    alert("Try again");
     guessesRemaining -= 1;
     currentGuess = [];
     nextLetter = 0;
