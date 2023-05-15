@@ -11,17 +11,9 @@ let randomWord = "qqqqq";
 console.log(randomWord);
 
 function insertText(text) {
-  console.log("triggered");
-  document.getElementById(`${text}`).addEventListener("click", (e) => {
-    const target = e.target;
-
-    // if (!target.classList.contains(`${text}`)) {
-    //   return;
-    // }
-    let key = target.textContent;
-    console.log(key);
-    insertLetter(key);
-  });
+  const target = document.getElementById(`${text}`);
+  console.log(target.textContent);
+  insertLetter(target.textContent);
 }
 
 function insertLetter(pressedKey) {
