@@ -6,33 +6,40 @@ const GUESSES = 5;
 let guessesRemaining = GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-//let randomWord = words[Math.floor(Math.random() * words.length)];
-let randomWord = "qqqqq";
+let WordGenerated = words[Math.floor(Math.random() * words.length)];
+var splitWord = WordGenerated.split("").map((letter) => letter.toLowerCase());
+
+let randomWord = splitWord.join("");
+
 console.log(randomWord);
 
 function insertText(text) {
   const target = document.getElementById(`${text}`);
   console.log(target.textContent);
-  insertLetter(target.textContent);
+
+  if (nextLetter < 5) {
+    insertLetter(target.textContent);
+  }
 }
 
 function insertLetter(pressedKey) {
-  if (nextLetter < 5) {
-    console.log(pressedKey);
+  console.log(pressedKey);
 
-    let row = document.getElementsByClassName("grid-row")[5 - guessesRemaining];
+  let row = document.getElementsByClassName("grid-row")[5 - guessesRemaining];
 
-    let box = row.children[nextLetter];
-    console.log(box);
+  let box = row.children[nextLetter];
+  console.log(box);
 
-    box.textContent = pressedKey;
-    pressedKey = pressedKey.toLowerCase();
-    //   box.classList.add("filled-box");
-    currentGuess.push(pressedKey);
-    nextLetter += 1;
-  } else {
+  box.textContent = pressedKey;
+  pressedKey = pressedKey.toLowerCase();
+  //   box.classList.add("filled-box");
+  currentGuess.push(pressedKey);
+  console.log(nextLetter);
+  nextLetter += 1;
+  if (nextLetter === 5) {
     checkGuess();
   }
+  console.log(nextLetter);
 }
 
 function checkGuess() {
@@ -90,7 +97,7 @@ function checkGuess() {
 
     if (guessesRemaining === 0) {
       alert("You've run out of guesses! Game over!");
-      alert(`The right word was: "${rightGuessString}"`);
+      alert(`The right word was: "${randomWord}"`);
     }
   }
 }
