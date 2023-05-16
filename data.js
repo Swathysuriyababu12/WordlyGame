@@ -81,7 +81,6 @@ var words = [
   "Plaza",
   "Hobby",
   "Candy",
-  "Voyage",
   "Curvy",
   "Smile",
   "Shrug",
