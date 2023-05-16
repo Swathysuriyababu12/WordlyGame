@@ -85,7 +85,7 @@ function checkGuess() {
     guessesRemaining = 0;
     const div = document.getElementById("end");
     let end = document.createElement("div");
-    end.textContent = "win paniteengala" + name + "!!!";
+    end.textContent = "Game Over,You Won " + name + "!!!";
     div.appendChild(end);
     return;
   } else {
