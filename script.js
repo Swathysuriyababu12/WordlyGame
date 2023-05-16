@@ -32,7 +32,7 @@ function insertLetter(pressedKey) {
 
   box.textContent = pressedKey;
   pressedKey = pressedKey.toLowerCase();
-  //   box.classList.add("filled-box");
+
   currentGuess.push(pressedKey);
   console.log(nextLetter);
   nextLetter += 1;
@@ -53,51 +53,64 @@ function checkGuess() {
   }
   console.log(guessString);
 
-  //   for (let i = 0; i < 5; i++) {
-  //     let letterColor = "";
-  //     let box = row.children[i];
-  //     let letter = currentGuess[i];
+  for (let i = 0; i < 5; i++) {
+    let boxColor = "";
+    let box = row.children[i];
+    let letter = currentGuess[i];
+    console.log(box);
+    console.log(rightGuess.indexOf(currentGuess[i]));
 
-  //     let letterPosition = rightGuess.indexOf(currentGuess[i]);
-  //     // is letter in the correct guess
-  //     if (letterPosition === -1) {
-  //       letterColor = "grey";
-  //     } else {
-  //       // now, letter is definitely in word
-  //       // if letter index and right guess index are the same
-  //       // letter is in the right position
-  //       if (currentGuess[i] === rightGuess[i]) {
-  //         // shade green
-  //         letterColor = "green";
-  //       } else {
-  //         // shade box yellow
-  //         letterColor = "yellow";
-  //       }
-
-  //       rightGuess[letterPosition] = "#";
-  //     }
-
-  //     let delay = 250 * i;
-  //     setTimeout(() => {
-  //       //shade box
-  //       box.style.backgroundColor = letterColor;
-  //       shadeKeyBoard(letter, letterColor);
-  //     }, delay);
-  //   }
+    let letterPosition = rightGuess.indexOf(currentGuess[i]);
+    // is letter in the correct guess
+    if (letterPosition === -1) {
+      boxColor = "grey";
+    } else {
+      // now, letter is definitely in word
+      // if letter index and right guess index are the same
+      // letter is in the right position
+      if (currentGuess[i] === rightGuess[i]) {
+        // shade green
+        boxColor = "green";
+      } else {
+        // shade box yellow
+        boxColor = "yellow";
+      }
+      // rightGuess[letterPosition] = "#";
+    }
+    console.log(boxColor);
+    box.style.backgroundColor = boxColor;
+  }
 
   if (guessString === randomWord) {
-    alert("You guessed right! Game over!");
     guessesRemaining = 0;
+    const div = document.getElementById("end");
+    let end = document.createElement("div");
+    end.textContent = "GAME OVER YOU WON";
+    div.appendChild(end);
     return;
   } else {
-    alert("Try again");
     guessesRemaining -= 1;
     currentGuess = [];
     nextLetter = 0;
+    const div = document.getElementById("end");
+    if (guessesRemaining > 0) {
+      let end = document.createElement("div");
+      end.textContent = "TRY AGAIN,GUESSES REMAINING  " + guessesRemaining;
+      div.appendChild(end);
+
+      let delay = 1000;
+      setTimeout(() => {
+        div.removeChild(end);
+      }, delay);
+    }
 
     if (guessesRemaining === 0) {
-      alert("You've run out of guesses! Game over!");
-      alert(`The right word was: "${randomWord}"`);
+      const div = document.getElementById("end");
+
+      let end = document.createElement("div");
+      end.textContent =
+        "Game Over!!!The right word is " + "'" + randomWord + "'";
+      div.appendChild(end);
     }
   }
 }
