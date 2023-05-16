@@ -4,6 +4,12 @@
   text-align: center;
 }
 
+.heading {
+  font-family: "Arial", sans-serif;
+  color: rgb(45, 29, 215);
+  text-align: center;
+}
+
 .keyboard {
   display: grid;
   grid-template-rows: repeat(10, 0.5fr);
@@ -70,6 +76,7 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: blue;
 }
 #end > div {
   width: 100%;

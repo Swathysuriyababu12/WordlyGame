@@ -1,7 +1,7 @@
 // Word Guessing Game
 
 // Array of words
-
+let name = prompt("Hello,Enter you name!");
 const GUESSES = 5;
 let guessesRemaining = GUESSES;
 let currentGuess = [];
@@ -85,7 +85,7 @@ function checkGuess() {
     guessesRemaining = 0;
     const div = document.getElementById("end");
     let end = document.createElement("div");
-    end.textContent = "GAME OVER YOU WON";
+    end.textContent = "Game Over,You Won " + name + "!!!";
     div.appendChild(end);
     return;
   } else {
