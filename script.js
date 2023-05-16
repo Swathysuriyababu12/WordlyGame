@@ -1,34 +1,35 @@
-// Word Guessing Game
-
-// Array of words
+// Prompt for taking the name of the player
 let name = prompt("Hello,Enter you name!");
+
+//Initialising values for the game development
 const GUESSES = 5;
 let guessesRemaining = GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
+
+//To select a random word from the array
 let WordGenerated = words[Math.floor(Math.random() * words.length)];
+
 var splitWord = WordGenerated.split("").map((letter) => letter.toLowerCase());
-
 let randomWord = splitWord.join("");
-
 console.log(randomWord);
+
+//Function for inserting text
 
 function insertText(text) {
   const target = document.getElementById(`${text}`);
-  console.log(target.textContent);
 
   if (nextLetter < 5) {
     insertLetter(target.textContent);
   }
 }
 
-function insertLetter(pressedKey) {
-  console.log(pressedKey);
+//Function for inserting letter
 
+function insertLetter(pressedKey) {
   let row = document.getElementsByClassName("grid-row")[5 - guessesRemaining];
 
   let box = row.children[nextLetter];
-  console.log(box);
 
   box.textContent = pressedKey;
   pressedKey = pressedKey.toLowerCase();
@@ -39,14 +40,12 @@ function insertLetter(pressedKey) {
   if (nextLetter === 5) {
     checkGuess();
   }
-  console.log(nextLetter);
 }
 
 function checkGuess() {
   let row = document.getElementsByClassName("grid-row")[5 - guessesRemaining];
   let guessString = "";
   let rightGuess = randomWord.split("");
-  console.log(rightGuess);
 
   for (const val of currentGuess) {
     guessString += val;
@@ -57,7 +56,7 @@ function checkGuess() {
     let boxColor = "";
     let box = row.children[i];
     let letter = currentGuess[i];
-    console.log(box);
+    //console.log(box);
     console.log(rightGuess.indexOf(currentGuess[i]));
 
     let letterPosition = rightGuess.indexOf(currentGuess[i]);
@@ -75,7 +74,6 @@ function checkGuess() {
         // shade box yellow
         boxColor = "yellow";
       }
-      // rightGuess[letterPosition] = "#";
     }
     console.log(boxColor);
     box.style.backgroundColor = boxColor;

@@ -1,48 +1,8 @@
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .heading {
   font-family: "Arial", sans-serif;
   color: rgb(45, 29, 215);
   text-align: center;
 }
-
-.keyboard {
-  display: grid;
-  grid-template-rows: repeat(10, 0.5fr);
-  gap: 10px;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.key {
-  font-size: 24px;
-  padding: 10px;
-  width: 50px;
-  text-align: center;
-  border: none;
-  border-radius: 5px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.key:hover {
-  background-color: #e2e2e2;
-}
-
-button:focus {
-  outline: none;
-}
-
-/* Input boxes */
 
 .grid-container {
   display: grid;
@@ -92,4 +52,42 @@ button:focus {
   letter-spacing: 1px;
   margin-bottom: 10px;
   text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-rows: repeat(10, 0.5fr);
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.key {
+  font-size: 24px;
+  padding: 10px;
+  width: 50px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.key:hover {
+  background-color: #e2e2e2;
+}
+
+button:focus {
+  outline: none;
 }

@@ -8,7 +8,11 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- Division for heading -->
     <div class="heading"><h2>WORDLE GAME</h2></div>
+
+    <!-- Divison for creating 5 * 5 grid boxes -->
+
     <div class="grid-container">
       <div class="grid-row">
         <div class="grid-item"></div>
@@ -46,7 +50,12 @@
         <div class="grid-item"></div>
       </div>
     </div>
+
+    <!-- Division to display the game response -->
     <div id="end"></div>
+
+    <!-- Divison to create keyboard pattern -->
+
     <div class="container">
       <div class="keyboard">
         <div class="row">
@@ -81,10 +90,6 @@
           <button class="key" id="N" onclick="insertText('N')">N</button>
           <button class="key" id="M" onclick="insertText('M')">M</button>
         </div>
-        <!-- <div class="row">
-          <button class="key" onclick="insertText(' ')">Space</button>
-          <button class="key" onclick="deleteText()">Delete</button>
-        </div> -->
       </div>
     </div>
     <script src="data.js"></script>
